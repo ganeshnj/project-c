@@ -2,12 +2,7 @@ package com.uha.ensisa.webapp.controllers;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Collection;
-import java.util.List;
-import java.util.UUID;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,7 +12,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.uha.ensisa.webapp.models.Vehicle;
-import com.uha.ensisa.webapp.models.VehicleType;
 import com.uha.ensisa.webapp.repository.VehicleRepository;
 
 @RestController
