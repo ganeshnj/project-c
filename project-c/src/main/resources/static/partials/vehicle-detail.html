@@ -1,0 +1,32 @@
+<div class="container">
+	<h1>Create a new user</h1>
+
+	<form novalidate="novalidate" class="form-horizontal">
+		<div class="control-group">
+			<label class="control-label" for="inputName">Name:</label>
+
+			<div class="controls">
+				<input type="text" id="inputName" ng-model="vehicle.name"
+					placeholder="Name" />
+			</div>
+		</div>
+		<div class="control-group">
+
+			<label class="control-label" for="selectType">Type:</label>
+			
+			 <select id="selectType"
+				ng-model="vehicle.type">
+				<option value="CAR">Car</option>
+				<option value="BIKE">Bike</option>
+				<option value="BICYCLE">Bicycle</option>
+			</select>
+
+		</div>
+		<div class="control-group">
+			<div class="controls">
+				<a ng-click="createNewVehicle()" class="btn btn-small btn-primary">create
+					new vehicle</a>
+			</div>
+		</div>
+	</form>
+</div>

@@ -1,0 +1,38 @@
+
+<div class="row">
+	<div class="col-md-12">
+		<!--Body content-->
+
+		<div class="page-header">
+			<h1>
+				List of vehicles <Small>Total no of vehicles:{{total}}</Small>
+			</h1>
+		</div>
+
+		<ul class="media-list">
+			<li class="media" ng-repeat="vehicle in vehicles">
+				<div class="media-left">
+					<div ng-if="vehicle.type=='BIKE'">
+						<img class="media-object" alt="motorcycle"
+							src="../img/motorcycle.png">
+					</div>
+					<div ng-if="vehicle.type=='BICYCLE'">
+						<img class="media-object alt=" cycle" src="../img/cycle.png">
+					</div>
+					<div ng-if="vehicle.type=='CAR'">
+						<img class="media-object" alt="car" src="../img/car.png">
+					</div>
+				</div>
+				<div class="media-body">
+					<h4 class="media-heading">{{vehicle.name}}</h4>
+					<div class="btn-group btn-group-sm pull-right" role="group">
+						<a ng-click="editVehicle(vehicle.id)"
+							class="btn btn-small btn-primary">edit</a> <a
+							ng-click="deleteVehicle(vehicle.id)"
+							class="btn btn-small btn-danger">delete</a>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>
