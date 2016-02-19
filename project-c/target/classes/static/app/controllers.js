@@ -14,7 +14,10 @@ vehicleControllers.controller('VehicleListController',
 	        	VehicleFactory.delete({ id: vehicleId })
 	        	.$promise.then(
 	        			function(value){
-	        				$scope.vehicles = VehiclesFactory.query(); 
+	        				$scope.vehicles = VehiclesFactory.query().$promise.then(function(value){
+	        		        	$scope.total = value.length;
+	        		        	$scope.vehicles = value;
+	        		        }); 
 	        			}
 	        	);
 	        	
@@ -32,8 +35,9 @@ vehicleControllers.controller('VehicleAddController',
 		[ '$scope', 'VehiclesFactory', '$location',
 		function($scope, VehiclesFactory, $location) {
 			$scope.createNewVehicle = function() {
-				VehiclesFactory.create($scope.vehicle);
-				$location.path('/vehicles');
+				VehiclesFactory.create($scope.vehicle).$promise.then(function(value){
+					  $location.path('/vehicles');
+		        });
 			}
 		} ]);
 
@@ -58,8 +62,10 @@ vehicleControllers.controller('VehicleEditController',
 	
 	      // callback for ng-click 'updateUser':
 	  $scope.updateVehicle = function () {
-		  VehicleFactory.update($scope.vehicle);
-		  $location.path('/vehicles');
+		  VehicleFactory.update($scope.vehicle).$promise.then(function(value){
+			  $location.path('/vehicles');
+	        }); ;
+		 
 	  };
 	
 	  // callback for ng-click 'cancel':

@@ -24,8 +24,8 @@ public class Application {
 	public CommandLineRunner demo(VehicleRepository repository) {
 		return (args) -> {
 			// save a couple of Vehicles
-			repository.save(new Vehicle("Atlas", VehicleType.BICYCLE));
-			repository.save(new Vehicle("Hardly", VehicleType.BIKE));
+			repository.save(new Vehicle("Argon", VehicleType.BICYCLE));
+			repository.save(new Vehicle("Harley Davidson", VehicleType.BIKE));
 			repository.save(new Vehicle("Yamaha", VehicleType.BIKE));
 			repository.save(new Vehicle("Ferrari", VehicleType.CAR));
 			repository.save(new Vehicle("BMW", VehicleType.CAR));
