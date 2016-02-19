@@ -8,17 +8,41 @@
 		</div>
 	</div>
 	<div class="col-md-4">
+		<table class="table table-condensed">
+			<thead>
+				<tr>
+					<th>Type</th>
+					<th>Total</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Bikes</td>
+					<td>{{totalBike}}</td>
+				</tr>
+				<tr>
+					<td>Bicycles</td>
+					<td> {{totalCycle}}</td>
+				</tr>
+				<tr>
+					<td>Cars</td>
+					<td> {{totalCar}}</td>
+				</tr>
+			</tbody>
+		</table>
+		
 		<div class="form-group">
 			<label class="control-label" for="inputQuery">Search</label> <input
 				type="text" class="form-control" id="inputQuery" name="inputQuery"
 				ng-model="query">
 		</div>
 		<div class="form-group">
-			<label class="control-label" for="selectSort">Sort by</label> 
-			<select ng-model="orderProp" name="selectSort" id="selectSort" class="form-control">
+			<label class="control-label" for="selectSort">Sort by</label> <select
+				ng-model="orderProp" name="selectSort" id="selectSort"
+				class="form-control">
 				<option value="name">Name</option>
 				<option value="type">Type</option>
-			</select> 
+			</select>
 		</div>
 
 	</div>
@@ -26,7 +50,8 @@
 		<!--Body content-->
 
 		<ul class="media-list">
-			<li class="media" ng-repeat="vehicle in vehicles | filter:query | orderBy:orderProp">
+			<li class="media"
+				ng-repeat="vehicle in vehicles | filter:query | orderBy:orderProp">
 				<div class="media-left">
 					<div ng-if="vehicle.type=='BIKE'">
 						<img class="media-object" alt="motorcycle"

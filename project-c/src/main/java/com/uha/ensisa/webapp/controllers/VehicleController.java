@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.uha.ensisa.webapp.models.Vehicle;
+import com.uha.ensisa.webapp.models.VehicleType;
 import com.uha.ensisa.webapp.repository.VehicleRepository;
 
 @RestController
@@ -58,5 +59,13 @@ public class VehicleController {
 		System.out.println(dateFormat.format(cal.getTime()) + "::deleted:" + id);
 		repository.delete(id);
 	}
+	
+	@RequestMapping(value = "/typeTotal/{type}", method = RequestMethod.GET)
+	public int getTotalByType(@PathVariable VehicleType type) {
+		Calendar cal = Calendar.getInstance();
+		System.out.println(dateFormat.format(cal.getTime()) + "::Get Type:" + type);
+		return repository.findByType(type).size();
+	}
+	
 
 }

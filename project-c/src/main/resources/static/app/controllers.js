@@ -17,6 +17,20 @@ vehicleControllers.controller('VehicleListController',
 	        				$scope.vehicles = VehiclesFactory.query().$promise.then(function(value){
 	        		        	$scope.total = value.length;
 	        		        	$scope.vehicles = value;
+	        		        	
+	        		        	var car=0, bike=0, cycle=0;
+	        		        	angular.forEach($scope.vehicles, function(vehicle) {
+	        		        		if (vehicle.type == 'CAR')
+	        							car++;
+	        						else if (vehicle.type == 'BIKE')
+	        							bike++;
+	        						else if (vehicle.type == 'BICYCLE')
+	        							cycle++;
+	        		            });
+	        		        	$scope.totalCar = car;
+	        		        	$scope.totalBike = bike;
+	        		        	$scope.totalCycle = cycle;
+	        		        	
 	        		        }); 
 	        			}
 	        	);
@@ -26,6 +40,19 @@ vehicleControllers.controller('VehicleListController',
 	        $scope.vehicles = VehiclesFactory.query().$promise.then(function(value){
 	        	$scope.total = value.length;
 	        	$scope.vehicles = value;
+	        	
+	        	var car=0, bike=0, cycle=0;
+	        	angular.forEach($scope.vehicles, function(vehicle) {
+	        		if (vehicle.type == 'CAR')
+						car++;
+					else if (vehicle.type == 'BIKE')
+						bike++;
+					else if (vehicle.type == 'BICYCLE')
+						cycle++;
+	            });
+	        	$scope.totalCar = car;
+	        	$scope.totalBike = bike;
+	        	$scope.totalCycle = cycle;
 	        });
 	        
 	        
